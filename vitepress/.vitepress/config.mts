@@ -13,10 +13,19 @@ export default defineConfig({
 
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Overview',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Intro to Nile', link: 'overview/intro' },
+          { text: 'Architecture', link: 'overview/architecture' },
+          { text: 'Hardware', link: 'overview/hw' }
+        ]
+      },
+      {
+        text: 'Core Concepts',
+        items: [
+          { text: 'L2 vs L3', link: 'coreconcepts/l2l3' },
+          { text: 'VLANs vs Segments', link: 'coreconcepts/vlanssegments' },
+          { text: 'Service Areas', link: 'coreconcepts/serviceareas' }
         ]
       }
     ],
