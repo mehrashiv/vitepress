@@ -14,6 +14,7 @@ export default defineConfig({
     sidebar: [
       {
         text: 'Overview',
+        collapsed: true,
         items: [
           { text: 'Intro to Nile', link: 'overview/intro' },
           { text: 'Architecture', link: 'overview/architecture' },
@@ -22,6 +23,7 @@ export default defineConfig({
       },
       {
         text: 'Core Concepts',
+        collapsed: true,
         items: [
           { text: 'L2 vs L3', link: 'coreconcepts/l2l3' },
           { text: 'VLANs vs Segments', link: 'coreconcepts/vlanssegments' },
