@@ -71,21 +71,18 @@ export default defineConfig({
         text: 'Migration',
         collapsed: true,
         items: [
-          { text: 'Firewall and Router', link: 'integration/fwrouter' },
-          { text: 'DHCP', link: 'integration/dhcp' },
-          { text: 'RADIUS', link: 'integration/radius' },
-          { text: 'IDP', link: 'integration/idp' },
-          { text: 'Zscaler', link: 'integration/zscaler' },
-          { text: 'Palo Alto', link: 'integration/pa' }
+          { text: 'Firewall Objects', link: '/fwobjects' },
+          { text: 'VLANs to Segments', link: '/vlantosegments' },
+          { text: 'Campus Architecture ', link: '/campusarch' }
         ]
       },
       {
         text: 'Solutions',
         collapsed: true,
         items: [
-          { text: 'DHPC as a Service', link: 'integration/fwrouter' },
-          { text: 'Guest as a Service', link: 'integration/dhcp' },
-          { text: 'Self Registration', link: 'integration/radius' }
+          { text: 'DHPC as a Service', link: '/dhcpservice' },
+          { text: 'Guest as a Service', link: '/guestservice' },
+          { text: 'Self Registration', link: '/selfregister' }
         ]
       }
     ],
