@@ -59,12 +59,33 @@ export default defineConfig({
         text: 'Integration',
         collapsed: true,
         items: [
+          { text: 'Firewall and Router', link: '/fwrouter' },
+          { text: 'DHCP', link: '/dhcp' },
+          { text: 'RADIUS', link: '/radius' },
+          { text: 'IDP', link: '/idp' },
+          { text: 'Zscaler', link: '/zscaler' },
+          { text: 'Palo Alto', link: '/pa' }
+        ]
+      },
+      {
+        text: 'Migration',
+        collapsed: true,
+        items: [
           { text: 'Firewall and Router', link: 'integration/fwrouter' },
           { text: 'DHCP', link: 'integration/dhcp' },
           { text: 'RADIUS', link: 'integration/radius' },
           { text: 'IDP', link: 'integration/idp' },
           { text: 'Zscaler', link: 'integration/zscaler' },
           { text: 'Palo Alto', link: 'integration/pa' }
+        ]
+      },
+      {
+        text: 'Solutions',
+        collapsed: true,
+        items: [
+          { text: 'DHPC as a Service', link: 'integration/fwrouter' },
+          { text: 'Guest as a Service', link: 'integration/dhcp' },
+          { text: 'Self Registration', link: 'integration/radius' }
         ]
       }
     ],
