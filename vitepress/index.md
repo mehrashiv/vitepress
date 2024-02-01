@@ -12,7 +12,7 @@ hero:
   actions:
     - theme: brand
       text: Get Started
-      link: /overview/intro
+      link: /intro
 
 # features:
 #   - title: Feature A
