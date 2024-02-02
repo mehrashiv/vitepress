@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "Nile Documentation" Test
+  name: "Nile Documentation"
   #text: "Technical Documentation"
   tagline: Welcome to Nile's Technical documentation
   image:
