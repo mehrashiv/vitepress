@@ -1,10 +1,22 @@
 # Intro
 [Main Deck](https://nileglobalinc-my.sharepoint.com/:p:/g/personal/shiv_nilesecure_com/EetxX1hpDzRHhRIFga8_XJMB4hAH4uuh7UPcWKRXikGpZA?e=NfqIbY) - Slide 7-9
 
-# Overview
+### Service Tenets
+### Operation driven design (How SO's define features)
+### Shift Left
+### AI Networking
+### Key outcomes needed for NaaS
+
+![Sensors](/sensors.png)
+
+![Host Seg](/hostseg.png)
+
+![Shared Responsibility](/sharedresp.png)
+
+## Overview
 Nile delivers network-as-a-service that includes wireless and wired access. Our goal is to eliminate complexity and provide a simple, scalable, and secure network that doesn’t need configuration (by humans). We want to ensure the service is always-on. To achieve this we have taken an outside-in approach using physical and virtual sensors that are deployed across the Nile network (including AP’s and switches). We call this the "outside-in approach" because of its simplicity and the ability to easily verify the Nile sensor data. These sensors monitor the Nile network itself, as well as the DHCP, RADIUS, Internet, DNS, and applications, to identify any issues that can cause end-to-end service interruption. The Nile network is guaranteed to be always-on and backed financially if SLAs are not met. 
 
-## Following are the SLAs Nile commits to:
+Following are the SLAs Nile commits to:
 Availability:The goal of this SLA is to ensure Nile is available for end users/devices. Our WiFi sensors probe the NSB every minute to ensure it is available. If the probes fail, Nile is in violation for that minute.
 Coverage:The goal of this SLA is to confirm every sensor reports a five bars (-67dbm signal or better), every minute. If a single sensor does not receive this signal level, Nile is in violation for that minute.
 Capacity: The goal of this SLA is to verify that the committed number of Nile APs are functioning across a floor. If the committed number is not met, Nile is in violation for that minute. 

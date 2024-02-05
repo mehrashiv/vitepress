@@ -17,7 +17,7 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: 'Intro to Nile', link: '/intro' },
-          { text: 'Architecture', link: '/architecture' },
+          { text: 'Nile Architecture', link: '/architecture' },
           { text: 'Hardware', link: '/hw' }
         ]
       },
@@ -27,23 +27,26 @@ export default defineConfig({
         items: [
           { text: 'L2 vs L3', link: '/l2l3' },
           { text: 'VLANs vs Segments', link: '/vlanssegments' },
-          { text: 'Service Areas', link: '/serviceareas' }
+          { text: 'Service Areas', link: '/serviceareas' },
+          { text: 'RBAC', link: '/rbac' },
+          { text: 'Nile Day 2', link: '/nileday2' },
+          { text: 'Deployemnt', link: '/deployment' },
         ]
       },
       {
-        text: 'Zero Trust',
+        text: 'Campus Zero Trust',
         collapsed: true,
         items: [
-          { text: 'Zero Trust Access', 
+          { text: 'Campus Zero Trust Access', 
             collapsed: true,
             items: [
-              {text: 'MAB', link: '/mab' },
-              {text: 'Wired 802.1x', link: '/wired802' },
-              {text: 'Wireless 802.1x', link: '/wireless802' },
-              {text: 'Wireless SSO', link: '/wirelessSSO' },
-              {text: 'UPSK', link: '/upsk' },
-              {text: 'Captive Portal', link: '/cp' },
-              {text: 'Wired SSO and Guest', link: '/wiredSSO' },
+              {text: 'MAB', link: '/ztamab' },
+              {text: 'Wired 802.1x', link: '/ztawired802' },
+              {text: 'Wireless 802.1x', link: '/ztawireless802' },
+              {text: 'Wireless SSO', link: '/ztawirelessSSO' },
+              {text: 'UPSK', link: '/ztaupsk' },
+              {text: 'Captive Portal', link: '/ztacp' },
+              {text: 'Wired SSO and Guest', link: '/ztawiredSSO' },
             ]
           },
           { text: 'Zero Trust Policy', 
@@ -59,12 +62,12 @@ export default defineConfig({
         text: 'Integration',
         collapsed: true,
         items: [
-          { text: 'Firewall and Router', link: '/fwrouter' },
-          { text: 'DHCP', link: '/dhcp' },
-          { text: 'RADIUS', link: '/radius' },
-          { text: 'IDP', link: '/idp' },
-          { text: 'Zscaler', link: '/zscaler' },
-          { text: 'Palo Alto', link: '/pa' }
+          { text: 'Firewall and Router', link: '/integrationrouter' },
+          { text: 'DHCP', link: '/integrationdhcp' },
+          { text: 'RADIUS', link: '/integrationradius' },
+          { text: 'IDP', link: '/integrationidp' },
+          { text: 'Zscaler', link: '/integrationzscaler' },
+          { text: 'Palo Alto', link: '/integrationpa' }
         ]
       },
       {
@@ -72,12 +75,32 @@ export default defineConfig({
         collapsed: true,
         items: [
           { text: 'Firewall Objects', link: '/fwobjects' },
-          { text: 'VLANs to Segments', link: '/vlantosegments' },
-          { text: 'Campus Architecture ', link: '/campusarch' }
+          { text: 'VLANs to Segments', link: '/migrationvlans' },
+          { text: 'Architecture ', link: '/archmigration' }
         ]
       },
       {
         text: 'Solutions',
+        collapsed: true,
+        items: [
+          { text: 'DHPC as a Service', link: '/dhcpservice' },
+          { text: 'Guest as a Service', link: '/guestservice' },
+          { text: 'Self Registration', link: '/selfregister' }
+        ]
+      },
+      {
+        text: 'Monitoring and Troubleshooting',
+        collapsed: true,
+        items: [
+          { text: 'SLA', link: '/monsla' },
+          { text: 'Infrastructure', link: '/moninfra' },
+          { text: 'Applications', link: '/monapps' },
+          { text: 'Devices', link: '/mondevices' },
+          { text: 'Alerts and Audit', link: '/monalerts' }
+        ]
+      },
+      {
+        text: 'Settings',
         collapsed: true,
         items: [
           { text: 'DHPC as a Service', link: '/dhcpservice' },

@@ -1,1 +1,9 @@
 # VLANs vs Segments
+## What are VLANs?
+VLANs, or Virtual Local Area Networks, are a way to logically segment a physical network into multiple isolated broadcast domains. This is a Layer 2 construct. This segmentation allows you to create multiple virtual networks within a single physical network infrastructure. Each VLAN operates as if it were a separate and independent network, even though devices within the VLAN can be physically connected to the same network switch. Broadcast traffic is limited to the devices within the same VLAN. This helps to reduce broadcast domains and manage network traffic more efficiently. Unfortunately VLANs are being leveraged for  network segmentation, which gives the false sense of enhanced security. Devices within the same VLAN can communicate with each other as if they are on the same network, while communication between devices in different VLANs requires routing. But if a compromised device lands up on privileged VLAN it can lead to a huge breach
+
+
+## What are Segments?
+Segment is a Nile construct that is at Layer 3. Rather than defining an SSID to be on VLAN 2 we define the SSID to be a segment. Internally Segment maps to a subnet rather than a VLAN. This gives Nile the flexibility to map users and devices to segments rather than configure ports with VLANs. In the Nile world there is no port level config on a switch. When a device plugs in it is assigned a segment and gets an IP from the subnet that was mapped to that segment
+
+Segments are global construct. For example if you have three sites, SFO, BLR and FRA that all have employees, you can create a segment called Employee and map it all the three geoscopes. Once that is done you can define a subnet per geo. Segments follow the user or device across geos rather than being tied to a physical port
