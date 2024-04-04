@@ -21,12 +21,12 @@ Since the DHCP server sits outside of the NSB, this traffic must be routed via t
 Lets look how this is configured
 ![DHCP Settings](/dhcpnp.png)
 In Nile Portal the customer must add details of their DHCP server. As see in the screenshot, they must do the following:
-1. Name - Required - Can be anything but must be unique across the tenant
-2. Host 1 - The first DHCP server in the list
+1. Name - Mandatory - Can be anything but must be unique across the tenant
+2. Host 1 - Mandatory -The first DHCP server in the list
 3. Host 2 - Optional - The second DHCP server in the list
 4. Host 3 - Optional - The third DHCP server in the list
-5. Geoscope - Required - Which sites this DHCP server serves
-6. Subnet - Define afor.subnets and their respective default gateways that this sever is configured for
+5. Geoscope - Mandatory - Which sites this DHCP server serves
+6. Subnet - Mandatory - Define subnets and their respective default gateways that this sever is configured for
 
 ### DHCP Redundancy
 If the customer configured Host 1, Host 2 and Host 3, then Nile will send the request to all three servers. Whichever server responds first, IP will be used. if the other two respond, we will ignore them. So, redundancies need to be configured between the servers.
