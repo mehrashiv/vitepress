@@ -1,1 +1,0 @@
-import{_ as e,c as t,o as a,V as r,a7 as i}from"./chunks/framework.htLevCiS.js";const f=JSON.parse('{"title":"L2 vs L3 Architecture","description":"","frontmatter":{},"headers":[],"relativePath":"l2l3.md","filePath":"l2l3.md"}'),n={name:"l2l3.md"},s=r("",11),o=[s];function h(d,c,l,p,u,_){return a(),t("div",null,o)}const g=e(n,[["render",h]]);export{f as __pageData,g as default};
