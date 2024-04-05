@@ -38,7 +38,7 @@ Auth Type - 802.1x
 
 The expectation is when a Student connects to the SSID, they should be on the **Student** segment and when a Teacher connects to the SSID they should be on the **Teacher** segment. Since the Authentication is done by the RADIUS server it needs to send us the exact text **Student** or **Teacher**.
 
-`
+```
 VENDOR  Nile    58313
 
 BEGIN-VENDOR    Nile
@@ -48,7 +48,7 @@ ATTRIBUTE       netseg          2       string
 ATTRIBUTE       nile-avpair     3       string
 
 END-VENDOR      Nile
-`
+```
 
 ### Nile Dictionary File
 The Nile dictionary file needs to be uploaded in to the RADIUS server and the netseg attriute needs to be leverage e.g. netseg=Teacher or netseg=Student
