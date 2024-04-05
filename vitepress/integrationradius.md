@@ -96,4 +96,6 @@ In this mode, the admin will just configure the RADIUS server in Nile Portal as 
 ### Controller Initiated flow
 In this mode, the admin will configure the RADIUS server in Nile portal but add a guest portal URL.  When a guest connects to a SSID that is mapped to the RADIUS server, following is the flow:
 1. Guests will get an IP address (assuming, the user is connecting for the very first time)
-2. Since Nile has the 
+2. Since Nile has the re-direct URL configured, we will direct the user to that URL. The device will authenticate with RADIUS server via the portal and Nile is transparent to it
+3. The RADIUS server will then notify Nile with a Success or Reject based on which the user will be allowed or denied access to the network **Need to figure out how this works**
+
