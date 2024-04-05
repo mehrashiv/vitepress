@@ -82,11 +82,18 @@ Nile offers 3 diffent solutions for Guest Access
 
 In this section we will focus on Integration with an external RADIUS server
 There are two methods of integration
-1. Server Initiated 
-2. Nile Initiated
+1. Server Initiated flow
+2. Nile Initiated flow
 
 ### Server Initiated
-In this mode, the admin will just configure the RADIUS server as they do for 802.1x. No additional configuration is required. When a guest connects to a SSID that is mapped to the RADIUS server, following is the flow:
+In this mode, the admin will just configure the RADIUS server in Nile Portal as they do for 802.1x. No additional configuration is required. When a guest connects to a SSID that is mapped to the RADIUS server, following is the flow:
 1. Guests will get an IP address (assuming, the user is connecting for the very first time)
 2. In the background, Nile will do a MAC Auth with the external radius server
-3. RADIUS server 
+3. Since the RADIUS server is not aware of this MAC address (first time connection), it will send a MAC-Auth success with the Nile VSA **redirec-url**. Nile dictionary import in the RADIUS server is required.
+4. Nile will leverage the attribute to re-direct the guest user to the portal page. The device will authenticate with RADIUS server via the portal and Nile is transparent to it
+5. The RADIUS server will then notify Nile with a Success or Reject based on which the user will be allowed or denied access to the network
+
+### Controller Initiated flow
+In this mode, the admin will configure the RADIUS server in Nile portal but add a guest portal URL.  When a guest connects to a SSID that is mapped to the RADIUS server, following is the flow:
+1. Guests will get an IP address (assuming, the user is connecting for the very first time)
+2. Since Nile has the 
