@@ -75,13 +75,13 @@ Nile has built-in MAC authentication at no extra cost. As mentioned earlier, eve
 >RADIUS server groups can be mapped to single or multiple sites. If there are multiple RADIUS server groups for the same site, only one of them can be marked with **Wired MAC AUTH**. Also note a RADIUS server group can have up to 3 servers for redundancy.
 
 ## Guest Access
-Nile offers 3 diffent solutions for Guest Access
+Nile offers 3 different solutions for Guest Access
 1. Integration with External RADIUS server - Nile is passthrough
 2. Nile Hosted Guest - No external service is required. Admins can create a guest portal using Nile settings but are responsible for isolating the guest traffic after it egresses from Nile
 3. Secure Guest Service - Bare minimum settings required. Nile tunnels all traffic to a Nile PoP and manages DHCP as well.
 
 In this section we will focus on Integration with an external RADIUS server
-There are two methods of integration
+There are two methods of integration.
 1. Server Initiated flow
 2. Nile Initiated flow
 
@@ -89,13 +89,29 @@ There are two methods of integration
 In this mode, the admin will just configure the RADIUS server in Nile Portal as they do for 802.1x. No additional configuration is required. When a guest connects to a SSID that is mapped to the RADIUS server, following is the flow:
 1. Guests will get an IP address (assuming, the user is connecting for the very first time)
 2. In the background, Nile will do a MAC Auth with the external radius server
-3. Since the RADIUS server is not aware of this MAC address (first time connection), it will send a MAC-Auth success with the Nile VSA **redirec-url**. Nile dictionary import in the RADIUS server is required.
-4. Nile will leverage the attribute to re-direct the guest user to the portal page. The device will authenticate with RADIUS server via the portal and Nile is transparent to it
+3. Since the RADIUS server is not aware of this MAC address (first time connection), it will send a MAC-Auth success with the Nile VSA **redirec-url**. Nile dictionaries import in the RADIUS server is required.
+4. Nile will leverage the attribute to re-direct the guest user to the portal page. The device will authenticate with RADIUS server via the portal and Nile is transparent to it.
 5. The RADIUS server will then notify Nile with a Success or Reject based on which the user will be allowed or denied access to the network
 
 ### Controller Initiated flow
 In this mode, the admin will configure the RADIUS server in Nile portal but add a guest portal URL.  When a guest connects to a SSID that is mapped to the RADIUS server, following is the flow:
 1. Guests will get an IP address (assuming, the user is connecting for the very first time)
-2. Since Nile has the re-direct URL configured, we will direct the user to that URL. The device will authenticate with RADIUS server via the portal and Nile is transparent to it
+2. Since Nile has the re-direct URL configured, we will direct the user to that URL. The device will authenticate with RADIUS server via the portal and Nile is transparent to it.
 3. The RADIUS server will then notify Nile with a Success or Reject based on which the user will be allowed or denied access to the network **Need to figure out how this works**
+
+## Unique Passphrase Key (UPSK)
+Nile supports 2 methods of UPSK
+1. Integration with an external RADIUS server
+2. Nile Hosted UPSK
+
+In this section we will cover integration with an external RADIUS server
+
+### What is UPSK
+UPSK is a feature where every user or device can have a unique key when connecting to the same SSID. Usually with PSK, every user shares the same key. If the key gets compromised, all users are impacted and must be configured with a new key. With UPSK, if a single users key is compromised only that users key must be changed as others have their unique keys. 
+
+### How does Nile get UPSK from RADIUS?
+Nile can integrate with an external RADIUS server to get a key of a user. The admin will configure the MAC address of the user with a unique key in the RADIUS server.
+1. When a user connects to the Nile network, a MAC Auth request is sent to the RADIUS server
+2. The RADIUS server will respond with a MAC Auth Accept and use a standard RADIUS attribute `Tunnel-Password` to send the key back
+3. Nile will use this key to allow the user access to the network
 
