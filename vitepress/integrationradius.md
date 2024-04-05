@@ -31,7 +31,12 @@ Nile will monitor all 3 servers every minute. We will report latency and up/down
 ## Wireless 802.1x Authentication
 Nile is passthrough for all 802.1x transactions. The end user device and the RADIUS server exchange EAP messages to authenticate each other. So any EAP method can be used as Nile is transparent
 
-In some use cases an SSID can be mapped to multiple segments. In such scenario it is Mandatory for the RADIUS server to send back segment name which is an exact match to the Segment configured in Nile. This can be done either by using the Nile Dictionary file or Standard RADIUS attribute of VLAN ID
+In some use cases an SSID can be mapped to multiple segments. In such a scenario it is Mandatory for the RADIUS server to send back segment name which is an exact match to the Segment configured in Nile. This can be done either by using the Nile Dictionary file or Standard RADIUS attribute of VLAN ID. Following is an example:
+SSID Name - Denver Unniv
+Segments Mapped - Teacher, Student
+Auth Type - 802.1x
+
+The expectation is when a Student connects to the SSID, they should be on the **Student** segment and when a Teacher connects to the SSID they should be on the **Teacher** segment. Since the Authentication is done by the RADIUS server it needs to send us the exact text **Student** or **Teacher**
 
 
 
