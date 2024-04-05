@@ -31,14 +31,14 @@ Nile will monitor all 3 servers every minute. We will report latency and up/down
 ## Wireless 802.1x Authentication
 Nile is passthrough for all 802.1x transactions. The end user device and the RADIUS server exchange EAP messages to authenticate each other. So any EAP method can be used as Nile is transparent
 
-In some use cases an SSID can be mapped to multiple segments. In such a scenario it is Mandatory for the RADIUS server to send back segment name which is an exact match to the Segment configured in Nile. This can be done either by using the Nile Dictionary file or Standard RADIUS attribute of VLAN ID. Following is an example:
+In some use cases an SSID can be mapped to multiple segments. In such a scenario it is Mandatory for the RADIUS server to send back segment name which is an exact match to the Segment configured in Nile. This can be done either by using the Vendors Specific Attribute (Nile Dictionary file) or Standard RADIUS attribute of VLAN ID. Following is an example:
 SSID Name - Denver Unniv
 Segments Mapped - Teacher, Student
 Auth Type - 802.1x
 
 The expectation is when a Student connects to the SSID, they should be on the **Student** segment and when a Teacher connects to the SSID they should be on the **Teacher** segment. Since the Authentication is done by the RADIUS server it needs to send us the exact text **Student** or **Teacher**.
 
-### Nile Dictionary File
+### Vendor Specific Attribute (Nile Dictionary File)
 The Nile dictionary file needs to be uploaded in to the RADIUS server and the netseg attriute needs to be leverage e.g. netseg=Teacher or netseg=Student
 The netseg value is case sensitive hence the case should matach the segment configured in Nile Portal
 
@@ -62,3 +62,11 @@ END-VENDOR      Nile
 
 ### Standard RADIUS Attribute
 Some RADIUS servers dont support uploading a Dictionary file. Hence the segment name can be sent using a the standard RADIUS attribute `TunnelPrivateGroupID_Lookup`
+
+## Wired 802.1x
+All ports on a Nile Switch are blocked by default. When a device plugs in to a Nile Switch it has to be authorized by 802.1x or MAC Auth. If the device is configured for 802.1x, Nile is pass through just like it is for Wireless. 
+
+There is no port level config on Nile Switches, hence when using wired 802.1x it is **required** that the RADIUS server send a segment back using the VSA or  `TunnelPrivateGroupID_Lookup` as described in the previous section. 
+
+## MAC Authentication
+Nile has built-in MAC authentication at no extra cost. Every device that plugs in to Nile
