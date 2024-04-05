@@ -70,4 +70,7 @@ All ports on a Nile Switch are blocked by default. When a device plugs in to a N
 There is no port level config on Nile Switches, hence when using wired 802.1x it is **required** that the RADIUS server send a segment back using the VSA or  `TunnelPrivateGroupID_Lookup` as described in the previous section. 
 
 ## MAC Authentication
-Nile has built-in MAC authentication at no extra cost. Every device that plugs in to Nile
+Nile has built-in MAC authentication at no extra cost. As mentioned earlier, every device that plugs in to Nile has to be authorized either by 802.1x or MAC Auth. The MAC auth can be either with Nile or an external RADIUS server. For authenticatoion with an external RADIUS server, the **Wired MAC AUTH** checkbox needs to be checked when creating a RADIUS Server. Once this is enabled, Nile will authenticate all devices against a RADIUS server
+
+>[!NOTE]  
+>RADIUS server groups can be mapped to single or multiple sites. If there are multiple RADIUS server groups for the same site, only one of them can be marked with **Wired MAC AUTH**. Also note a RADIUS server group can have up to 3 servers for redundancy
