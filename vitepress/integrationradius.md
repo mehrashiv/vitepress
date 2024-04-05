@@ -74,3 +74,19 @@ Nile has built-in MAC authentication at no extra cost. As mentioned earlier, eve
 >[!NOTE]  
 >RADIUS server groups can be mapped to single or multiple sites. If there are multiple RADIUS server groups for the same site, only one of them can be marked with **Wired MAC AUTH**. Also note a RADIUS server group can have up to 3 servers for redundancy.
 
+## Guest Access
+Nile offers 3 diffent solutions for Guest Access
+1. Integration with External RADIUS server - Nile is passthrough
+2. Nile Hosted Guest - No external service is required. Admins can create a guest portal using Nile settings but are responsible for isolating the guest traffic after it egresses from Nile
+3. Secure Guest Service - Bare minimum settings required. Nile tunnels all traffic to a Nile PoP and manages DHCP as well.
+
+In this section we will focus on Integration with an external RADIUS server
+There are two methods of integration
+1. Server Initiated 
+2. Nile Initiated
+
+### Server Initiated
+In this mode, the admin will just configure the RADIUS server as they do for 802.1x. No additional configuration is required. When a guest connects to a SSID that is mapped to the RADIUS server, following is the flow:
+1. Guests will get an IP address (assuming, the user is connecting for the very first time)
+2. In the background, Nile will do a MAC Auth with the external radius server
+3. RADIUS server 
