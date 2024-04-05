@@ -54,7 +54,10 @@ END-VENDOR      Nile
 The Nile dictionary file needs to be uploaded in to the RADIUS server and the netseg attriute needs to be leverage e.g. netseg=Teacher or netseg=Student
 The netseg value is case sensitive hence the case should matach the segment configured in Nile Portal
 
-If the netseg value is null 
+If the netseg value is null or incorrect then the device will fail authentication with the appropriate message
+
+>[!NOTE]  
+>If the SSID is mapped to only one segment then the Nile dictionary file is not required or if used netseg can be set to null
 
 
 
