@@ -38,6 +38,12 @@ Auth Type - 802.1x
 
 The expectation is when a Student connects to the SSID, they should be on the **Student** segment and when a Teacher connects to the SSID they should be on the **Teacher** segment. Since the Authentication is done by the RADIUS server it needs to send us the exact text **Student** or **Teacher**.
 
+### Nile Dictionary File
+The Nile dictionary file needs to be uploaded in to the RADIUS server and the netseg attriute needs to be leverage e.g. netseg=Teacher or netseg=Student
+The netseg value is case sensitive hence the case should matach the segment configured in Nile Portal
+
+If the netseg value is null or incorrect then the device will fail authentication with the appropriate message
+
 ```
 VENDOR  Nile    58313
 
@@ -50,14 +56,9 @@ ATTRIBUTE       nile-avpair     3       string
 END-VENDOR      Nile
 ```
 
-### Nile Dictionary File
-The Nile dictionary file needs to be uploaded in to the RADIUS server and the netseg attriute needs to be leverage e.g. netseg=Teacher or netseg=Student
-The netseg value is case sensitive hence the case should matach the segment configured in Nile Portal
-
-If the netseg value is null or incorrect then the device will fail authentication with the appropriate message
-
 >[!NOTE]  
 >If the SSID is mapped to only one segment then the Nile dictionary file is not required or if used netseg can be set to null
 
 
-
+### Standard RADIUS Attribute
+Some RADIUS servers dont support uploading a Dictionary file. Hence the segment name can be sent using a the standard RADIUS attribute `TunnelPrivateGroupID_Lookup`
