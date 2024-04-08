@@ -18,3 +18,8 @@ Also note if only #1 is setup, the self register portal will only give the optio
 
 #### Step 3 - Access Flow
 When the aforementioned steps are performed, Nile autogenerates a self register URL. End users can navigate to the self registration page via my.nilesecure.com while connected to a Nile network. Once they get to the URL, they are first re-directed to the customers IDP for login. After successful login, they presented with the options defined in Step 2
+
+## UPSK Details
+To support user device like Laptops, tablets, phones etc., admin can enforece these devices go through SSO. Once the user generates a key, they can use it more than one device. Once they connect, they will be forced to do SSO to ensure they Authentication.
+
+To support headless wireless devices like Printers, Games, etc., the admin will have to create a different SSID as a UPSK but without and SSO. The UPSK key can be leveraged across multiple SSID's (as long as they are UPSK SSIDs)
