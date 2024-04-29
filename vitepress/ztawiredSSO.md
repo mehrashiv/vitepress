@@ -26,3 +26,16 @@ As an admin you will have to do the following:
 >[!NOTE]  
 >When Wired SSO enable, the ALL rule is automatically enabled with a pre-auth (onboarding) and post-auth segment
 
+### ALL rule is a catch-all so what happens to devices that are not browser based and do not match any MAC or OUI rule?
+A. Such devices will land up in the onboarding segment and will be displayed as Waiting for Approval. If the device does not authenticate. The device will have to be manually approved by the admin or if fingerprinted and there is a fingerprint rule, we should move it to the appropriate segment.  In some scenarios the device can be registered as a self register device from the self registration portal. So while it is in waiting for approval it can get authorized by the end user via the self registration portal.
+
+### Can Wired SSO be enabled at certain locations only?
+A. Wired SSO cannot be enabled at certain locations only
+
+### How often does the device have to authenticate via SSO on wired?
+A. The device has to only authenticate when:
+1. If the device has not connected to the network (wireless or wired) for 30 consecutive days
+2. Usually docking stations are static and don't move thus if the device is seen on a different port other than the one it was authenticated against, a SSO will be enforced
+3. Site or location changes (#2 should automatically take care of this)
+4. If the user changes the password in IDP (need to figure out how we get notified)
+Once a device is authenticated it is added to the MAB table. Any consequent connections to a wired port will result in a successful MAC address match and SSO will not be required
