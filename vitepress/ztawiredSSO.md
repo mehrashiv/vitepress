@@ -12,10 +12,10 @@ In legacy VLAN based architectures, every port needs to be configured with the a
 
 ## Wired SSO Details
 
-### How can I configure Wired SSO?
+### Q. How can I configure Wired SSO?
 We are introducting a new section under the Access Management Tab called Wired SSO where users can provide an onboarding segment and a post-athentication segment. Since this feature is tied to MAB, it can also be enabled when creating an ALL rule under Access Management --> Wired --> Add Device tab
 
-### As an admin what do I need to do in order to make Wired SSO work?
+### Q. As an admin what do I need to do in order to make Wired SSO work?
 As an admin you will have to do the following:
 1. Setup your IDP for SAML authentication
 2. Create a DHCP scope with a short lease time (5 mins). This is to ensure that devices release their IP and get a new one once segment is changed
@@ -26,16 +26,25 @@ As an admin you will have to do the following:
 >[!NOTE]  
 >When Wired SSO enable, the ALL rule is automatically enabled with a pre-auth (onboarding) and post-auth segment
 
-### ALL rule is a catch-all so what happens to devices that are not browser based and do not match any MAC or OUI rule?
+### Q. ALL rule is a catch-all so what happens to devices that are not browser based and do not match any MAC or OUI rule?
 A. Such devices will land up in the onboarding segment and will be displayed as Waiting for Approval. If the device does not authenticate. The device will have to be manually approved by the admin or if fingerprinted and there is a fingerprint rule, we should move it to the appropriate segment.  In some scenarios the device can be registered as a self register device from the self registration portal. So while it is in waiting for approval it can get authorized by the end user via the self registration portal.
 
-### Can Wired SSO be enabled at certain locations only?
+### Q. Can Wired SSO be enabled at certain locations only?
 A. Wired SSO cannot be enabled at certain locations only
 
-### How often does the device have to authenticate via SSO on wired?
+### Q. How often does the device have to authenticate via SSO on wired?
 A. The device has to only authenticate when:
 1. If the device has not connected to the network (wireless or wired) for 30 consecutive days
 2. Usually docking stations are static and don't move thus if the device is seen on a different port other than the one it was authenticated against, a SSO will be enforced
 3. Site or location changes (#2 should automatically take care of this)
 4. If the user changes the password in IDP (need to figure out how we get notified)
 Once a device is authenticated it is added to the MAB table. Any consequent connections to a wired port will result in a successful MAC address match and SSO will not be required
+
+### Q. What is an onboarding segment?
+A. Onboarding segment is a segment that only allows access to the IDP. This segment has to be created in the Nile Portal and mapped to a subnet that is restricted by the admin (at the upstream firewall or router) . All devices that are not capable of 802.1x or are not present in the MAB table will be mapped to this segment and will get an IP address from this segment. However the devices will not gain access to the network. They will be blocked and re-directed to the IDP page. Some restrictions on this segment:
+1. This segment cannot be part of an OUI or Fingerprint Rule
+2. If there is an exsiting device on this segment, it cannot be used as an onboarding segment
+3. Segments mapped to an 802.1x SSID wont be displayed as an onboarding segment
+
+>[!Note]
+>Nile will automatically allow the IDP URLs on this segment and block everything else. If any other URL's need to be allowed, they can be added under Segments --> Segment Name --> Advance
