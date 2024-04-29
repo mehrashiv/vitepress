@@ -44,7 +44,22 @@ Once a device is authenticated it is added to the MAB table. Any consequent conn
 A. Onboarding segment is a segment that only allows access to the IDP. This segment has to be created in the Nile Portal and mapped to a subnet that is restricted by the admin (at the upstream firewall or router) . All devices that are not capable of 802.1x or are not present in the MAB table will be mapped to this segment and will get an IP address from this segment. However the devices will not gain access to the network. They will be blocked and re-directed to the IDP page. Some restrictions on this segment:
 1. This segment cannot be part of an OUI or Fingerprint Rule
 2. If there is an exsiting device on this segment, it cannot be used as an onboarding segment
-3. Segments mapped to an 802.1x SSID wont be displayed as an onboarding segment
+3. Segment cannot be configured if it is part of any SSID configuration
 
 >[!Note]
 >Nile will automatically allow the IDP URLs on this segment and block everything else. If any other URL's need to be allowed, they can be added under Segments --> Segment Name --> Advance
+
+### Q. If an IOT device is connected and is not in the MAB table, will it get an IP address?
+A. Yes, the IOT device will get an IP address and if does not authenticate via SSO, it will show up as Waiting for approval in the Nile Portal.
+
+### Q. Once the device succeeds SSO, what segment will it be on?
+A. Once the device is authenticated, it will be moved from the onboarding segment to the post-auth segment defined during Wired SSO setup
+
+Q. What is the priority MAB rules?
+A. When a device is plugged in to a wired port, it will be evaluated in the following rule priority:
+1. Exact MAC address match
+2. Fingerprint match (e.g. Polycom VVX 300)
+3. OUI address match
+4. ALL / Wired Guest / Wired SSO
+>[!Note]
+>ALL and onboarding rules are mutually exclusive. Only one of them can be configured
