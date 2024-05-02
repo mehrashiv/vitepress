@@ -73,6 +73,6 @@ A. In the MAB table a column called Approver will identify how the device has be
 2. Help Desk
 3. OUI Rule
 4. Fingerprint Rule
-5. All Rule (if Wired SSO or Wired Guest is not being used)
+5. All Rule (if Wired SSO or Wired Guest <sup>(Future)</sup> is not being used)
 6. SSO
 7. Wired Guest <sup>(Future)</sup>
