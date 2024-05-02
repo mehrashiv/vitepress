@@ -76,3 +76,5 @@ A. In the MAB table a column called Approver will identify how the device has be
 5. All Rule (if Wired SSO or Wired Guest <sup>(Future)</sup> is not being used)
 6. SSO
 7. Wired Guest <sup>(Future)</sup>
+
+### Q. How can I edit Wired SSO?
