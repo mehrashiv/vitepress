@@ -46,7 +46,7 @@ A. pre-auth segment is a segment that only allows access to the IDP. This segmen
 2. If there is an exsiting device on this segment, it cannot be used as an pre-auth segment
 3. Segment cannot be configured if it is part of any SSID configuration
 
->[!Nzote]
+>[!Note]
 >Nile will automatically allow the IDP URLs on this segment and block everything else. If any other URL's need to be allowed, they can be added under Segments --> Segment Name --> Advance
 
 ### Q. If an IOT device is connected and is not in the MAB table, will it get an IP address?
@@ -55,11 +55,24 @@ A. Yes, the IOT device will get an IP address and if does not authenticate via S
 ### Q. Once the device succeeds SSO, what segment will it be on?
 A. Once the device is authenticated, it will be moved from the pre-auth segment to the post-auth segment defined during Wired SSO setup
 
-Q. What is the priority MAB rules?
+Q. What is the priority for MAB rules?
 A. When a device is plugged in to a wired port, it will be evaluated in the following rule priority:
 1. Exact MAC address match
 2. Fingerprint match (e.g. Polycom VVX 300)
 3. OUI address match
 4. ALL / Wired Guest / Wired SSO
 >[!Note]
->ALL and pre-auth rules are mutually exclusive. Only one of them can be configured
+>ALL and pre-auth rules are mutually exclusive. Once pre-ath is configred all devices that dont matach any rule will be in the pre-auth segment
+
+### Q. If the laptop is returned by the user to IT, can we ensure it cannot access the network?
+A. The IT admin will have to Force SSO for this particular device from the Nile Portal. If the user leaves the company and they are disabled in the IDP, then this device will be automatically be removed from the users profile
+
+### Q. As an admin how can I know if a device is approved by SSO or self registration or admin?
+A. In the MAB table a column called Approver will identify how the device has been approved. The following options will be available:
+1. Admin
+2. Help Desk
+3. OUI Rule
+4. Fingerprint Rule
+5. All Rule (if Wired SSO or Wired Guest is not being used)
+6. SSO
+7. Wired Guest <sup>(Future)</sup>
